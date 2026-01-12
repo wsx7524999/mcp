@@ -176,6 +176,149 @@ This repository contains core libraries, test frameworks, engineering systems, p
 ## 🏗️ Looking for starter templates that use MCP? 
 Check out the [Azure Developer CLI (azd) templates](https://azure.github.io/awesome-azd/?tags=mcp) tagged with MCP.
 
+## 🚀 Development & Automation
+
+### Quick Start with NPM Scripts
+
+This repository includes a root-level `package.json` that provides convenient npm scripts for common development tasks:
+
+```bash
+# Build the project with full verification
+npm run build
+
+# Quick build without verification
+npm run build:quick
+
+# Build Docker images
+npm run build:docker
+
+# Run all tests
+npm run test
+
+# Run only unit tests (exclude live tests)
+npm run test:unit
+
+# Run live tests (requires Azure resources)
+npm run test:live
+
+# Run spelling checks
+npm run lint
+
+# Analyze AOT compatibility
+npm run analyze:aot
+
+# Format code
+npm run format
+
+# Install Git hooks
+npm run hooks:install
+
+# Clean build artifacts
+npm run clean
+```
+
+### PowerShell Scripts
+
+For advanced build scenarios and CI/CD integration, use the PowerShell scripts directly:
+
+- `./eng/scripts/Build-Local.ps1` - Local development builds with platform-specific options
+- `./eng/scripts/Build-Code.ps1` - Core build script for compilation
+- `./eng/scripts/Build-Docker.ps1` - Docker image building
+- `./eng/scripts/Deploy-TestResources.ps1` - Deploy test infrastructure
+- `./eng/common/spelling/Invoke-Cspell.ps1` - Spell checking
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development workflows.
+
+## 🤖 AI & Machine Learning Integration
+
+### GitHub Copilot Integration
+
+This repository is optimized for [GitHub Copilot](https://github.com/features/copilot) development:
+
+- **Copilot Instructions**: Custom instructions in `.github/copilot-instructions.md` guide AI-assisted development
+- **Agent Configuration**: See [AGENTS.md](AGENTS.md) for custom agent configurations
+- **Context-Aware Development**: MCP servers provide rich context to AI coding assistants
+
+### AI-Powered Features
+
+The Microsoft MCP framework enables:
+
+- **Intelligent Tool Selection**: AI agents automatically select appropriate tools based on context
+- **Natural Language Queries**: Convert natural language to structured API calls
+- **Smart Resource Discovery**: AI-assisted resource finding and configuration
+- **Code Generation**: Generate MCP-compatible code and configurations
+- **Automated Testing**: AI-driven test generation and validation
+
+### Machine Learning Pipelines
+
+Integration points for ML workflows:
+
+- **Model Context Protocol**: Standardized interface for LLM interactions
+- **Azure AI Integration**: Seamless connection to Azure AI services
+- **Microsoft Fabric ML**: Support for Fabric-based ML pipelines
+- **Real-Time Intelligence**: Integration with Fabric Real-Time Intelligence for streaming ML
+
+## 🔄 CI/CD & DevOps
+
+### Continuous Integration
+
+The repository uses Azure Pipelines and GitHub Actions for CI/CD:
+
+#### GitHub Actions Workflows
+
+Located in `.github/workflows/`:
+
+- **Event Processor** (`event-processor.yml`) - Handles GitHub events (issues, PRs, comments)
+- **Scheduled Event Processor** (`scheduled-event-processor.yml`) - Periodic maintenance tasks
+- **Post API View** (`post-apiview.yml`) - API review automation
+- **Auto Milestone** (`auto-milestone-bugbash.yml`) - Automated milestone management
+
+#### Azure Pipelines
+
+Located in `eng/pipelines/`:
+
+- **Pull Request Validation** (`pullrequest.yml`) - PR checks including:
+  - Code compilation and builds
+  - Unit and integration tests
+  - Live tests (internal only)
+  - AOT compatibility analysis
+  - Spelling and lint checks
+  - Security scanning
+- **Release Pipelines** - Docker image builds and NPM package publishing
+- **Integration Tests** - End-to-end testing with real Azure resources
+
+### Build System Architecture
+
+The engineering system (`eng/`) provides:
+
+- **Unified Build Scripts**: PowerShell-based automation for consistency
+- **Multi-Platform Support**: Linux, Windows, macOS builds (x64, ARM64)
+- **Package Management**: NPM wrapper packages for easy distribution
+- **Test Infrastructure**: Bicep templates for test resource deployment
+- **AOT Compilation**: Native ahead-of-time compilation support
+- **Docker Support**: Containerized deployment options
+
+### Deployment Automation
+
+- **NPM Publishing**: Automated package publishing to npm registry
+- **Docker Registry**: Container images published to Microsoft Container Registry
+- **VS Code Extensions**: VSIX packaging for Visual Studio Code marketplace
+- **NuGet Packages**: .NET library distribution via NuGet
+
+### Quality Gates
+
+All changes must pass:
+
+- ✅ Unit tests
+- ✅ Integration tests
+- ✅ AOT compatibility analysis
+- ✅ Spelling and grammar checks
+- ✅ Code style validation
+- ✅ Security scanning (CodeQL)
+- ✅ Dependency vulnerability checks
+
+See the [Pull Request Guidelines](CONTRIBUTING.md#pull-request-process) for more details.
+
 ## 📎 Related Resources
 - [Microsoft MCP Resources](https://github.com/microsoft/mcp/tree/main/Resources)
 - [MCP Pattern Overview](https://modelcontextprotocol.io/introduction)
