@@ -320,6 +320,14 @@ All changes must pass:
 See the [Pull Request Guidelines](CONTRIBUTING.md#pull-request-process) for more details.
 
 ## 📎 Related Resources
+
+### Documentation in This Repository
+- [AUTOMATION.md](AUTOMATION.md) - Comprehensive guide to build automation, npm scripts, and CI/CD pipelines
+- [AI_ML_INTEGRATION.md](AI_ML_INTEGRATION.md) - AI and machine learning integration patterns and best practices
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Development workflow and contribution guidelines
+- [AGENTS.md](AGENTS.md) - Custom agent configurations for AI-assisted development
+
+### External Resources
 - [Microsoft MCP Resources](https://github.com/microsoft/mcp/tree/main/Resources)
 - [MCP Pattern Overview](https://modelcontextprotocol.io/introduction)
 - [MCP SDKs and Building Blocks](https://modelcontextprotocol.io/sdk)
