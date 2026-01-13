@@ -1,0 +1,67 @@
+{
+  "name": "microsoft-mcp-monorepo",
+  "version": "1.0.0",
+  "description": "Microsoft MCP Servers - A unified repository for building, testing, and deploying Model Context Protocol servers",
+  "private": true,
+  "workspaces": [
+    "eng/common/spelling",
+    "eng/common/tsp-client",
+    "servers/*/vscode"
+  ],
+  "scripts": {
+    "build": "pwsh -File ./eng/scripts/Build-Local.ps1 -UsePaths -VerifyNpx",
+    "build:quick": "pwsh -File ./eng/scripts/Build-Local.ps1",
+    "build:code": "pwsh -File ./eng/scripts/Build-Code.ps1",
+    "build:docker": "pwsh -File ./eng/scripts/Build-Docker.ps1",
+    "test": "dotnet test",
+    "test:unit": "dotnet test --filter Category!=LiveTest",
+    "test:live": "dotnet test --filter Category=LiveTest",
+    "lint": "pwsh -File ./eng/common/spelling/Invoke-Cspell.ps1",
+    "lint:spelling": "pwsh -File ./eng/common/spelling/Invoke-Cspell.ps1",
+    "analyze:aot": "pwsh -File ./eng/scripts/Analyze-AOT-Compact.ps1",
+    "analyze:code": "pwsh -File ./eng/scripts/Analyze-Code.ps1",
+    "format": "dotnet format",
+    "version:get": "pwsh -File ./eng/scripts/Get-Version.ps1",
+    "version:update": "pwsh -File ./eng/scripts/Update-Version.ps1",
+    "hooks:install": "pwsh -File ./eng/scripts/Install-GitHooks.ps1",
+    "deploy:test-resources": "pwsh -File ./eng/scripts/Deploy-TestResources.ps1",
+    "changelog:compile": "pwsh -File ./eng/scripts/Compile-Changelog.ps1",
+    "clean": "pwsh -Command \"Remove-Item -Path ./.work -Recurse -Force -ErrorAction SilentlyContinue\"",
+    "prebuild": "npm run clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "azure",
+    "fabric",
+    "ai",
+    "llm",
+    "copilot",
+    "automation",
+    "devops",
+    "microsoft"
+  ],
+  "author": "Microsoft Corporation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/microsoft/mcp/issues"
+  },
+  "homepage": "https://github.com/microsoft/mcp#readme",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0",
+    "pwsh": ">=7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  },
+  "config": {
+    "dotnet": {
+      "version": "10.0.100"
+    }
+  }
+}
